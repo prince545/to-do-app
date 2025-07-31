@@ -1,0 +1,217 @@
+:root {
+  --primary: #4361ee;
+  --secondary: #3f37c9;
+  --accent: #4895ef;
+  --danger: #f72585;
+  --success: #4cc9f0;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gradient: linear-gradient(135deg, #4cc9f0, #4895ef, #4361ee);
+  --gradient-danger: linear-gradient(135deg, #f72585, #d91a6d);
+}
+
+/* Base Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: var(--dark);
+}
+
+/* Container */
+#signup-container,
+#signin-container,
+#todos-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 450px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+#todos-container {
+  max-width: 500px;
+}
+
+/* Headings */
+h1, h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Inputs */
+input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 1.2rem;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(72, 149, 239, 0.25);
+}
+
+/* General Button Style */
+button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Primary Button */
+button[onclick="signup()"],
+button[onclick="signin()"],
+button[onclick="addTodo()"] {
+  background: var(--gradient);
+  color: white;
+  box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+  border: none;
+}
+
+button[onclick="signup()"]:hover,
+button[onclick="signin()"]:hover,
+button[onclick="addTodo()"]:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 14px rgba(63, 55, 201, 0.3);
+}
+
+/* Secondary Buttons */
+button[onclick="moveToSignin()"],
+button[onclick="moveToSignup()"] {
+  background: #ffffff;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
+button[onclick="moveToSignin()"]:hover,
+button[onclick="moveToSignup()"]:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* Logout Button */
+button[onclick="logout()"] {
+  background: var(--gradient-danger);
+  color: white;
+  box-shadow: 0 4px 10px rgba(247, 37, 133, 0.3);
+}
+
+button[onclick="logout()"]:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 14px rgba(217, 26, 109, 0.3);
+}
+
+/* Todos */
+#todos-list {
+  margin-top: 2rem;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(72, 149, 239, 0.1);
+  border-left: 5px solid var(--accent);
+  transition: all 0.3s ease;
+}
+
+.todo-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(72, 149, 239, 0.2);
+}
+
+.todo-text {
+  flex-grow: 1;
+  margin-right: 1rem;
+  color: var(--dark);
+}
+
+/* Delete Button */
+.delete-btn {
+  background: var(--danger);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.delete-btn:hover {
+  background: #d91a6d;
+}
+
+/* Add Todo Section */
+#todos-container > div {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+#todos-container > div input {
+  margin-bottom: 0;
+  flex-grow: 1;
+}
+
+#todos-container > div button {
+  width: auto;
+  padding: 0 1.5rem;
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #signup-container,
+  #signin-container,
+  #todos-container {
+    padding: 1.5rem;
+  }
+
+  #todos-container > div {
+    flex-direction: column;
+  }
+
+  #todos-container > div button {
+    width: 100%;
+  }
+}
